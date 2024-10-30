@@ -1,7 +1,19 @@
-
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function ListUser() {
+    //const [users, setUsers] = useState([])
+
+    useEffect(()=>{
+        getUsers()
+    }, [])
+
+    function getUsers(){
+        axios.get('http://localhost:3001/api/users').then(function(response){
+            console.log(response)
+        })
+    }
+
     return(
         <table className="table table-zebra">
             <thead className="text-sm text-gray-700 uppercase bg-gray-50">
